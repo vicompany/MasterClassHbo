@@ -1,0 +1,34 @@
+﻿@page
+@model MasterClassHbo.Ipo.Pages.IndexModel
+@{
+    ViewData["Title"] = "Please register";
+}
+
+<div class="text-left">
+    <form method="post">
+        <p>Please register your interest for the initial public offering(IPO) of VI Company </p>
+        <fieldset>
+            <label class="fieldLabel" asp-for="@Model.Registration.Email">Your email:</label>
+            <input asp-for="Registration.Email" placeholder="E-mail address" type="email" />
+            <span asp-validation-for="@Model.Registration.Email" class="error"></span>
+        </fieldset>
+
+        <fieldset>
+            <label class="fieldLabel" asp-for="@Model.Registration.Amount">Expected to buy:</label>
+            <input asp-for="Registration.Amount" type="number" placeholder="2" />
+            <span asp-validation-for="@Model.Registration.Amount" class="error"></span>
+        </fieldset>
+
+        <fieldset>
+            <label class="fieldLabel">Interests:</label>
+            <input asp-for="Registration.Stocks" type="checkbox" /> <label asp-for="@Model.Registration.Stocks">Stocks</label>
+            <input asp-for="Registration.Certificates" id="vegan" type="checkbox" /> <label asp-for="@Model.Registration.Certificates">Certificates</label>
+            <input asp-for="Registration.Derivatives" id="noGluten" type="checkbox" /> <label asp-for="@Model.Registration.Derivatives">Derivatives</label>
+
+            <span asp-validation-for="@Model.Registration.Stocks" class="error"></span>
+            <span asp-validation-for="@Model.Registration.Certificates" class="error"></span>
+            <span asp-validation-for="@Model.Registration.Derivatives" class="error"></span>
+        </fieldset>
+        <input type="submit" value="Signup"/>
+    </form>
+</div>

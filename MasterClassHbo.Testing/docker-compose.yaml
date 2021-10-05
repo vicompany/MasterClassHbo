@@ -1,0 +1,39 @@
+version: '3.7'
+
+services:
+  e2e:
+    image: "cypress/included:8.4.1"
+    networks:
+      - test-network
+    environment:
+      - CYPRESS_baseUrl=http://website:80
+    depends_on:
+      - website
+    working_dir: /e2e
+    volumes:
+      - ./:/e2e
+ 
+  website:
+    image: masterclasshbo.ipo:latest
+    networks:
+      - test-network
+    ports: 
+      - 5000:80 
+    environment:      
+      - ConnectionStrings__DefaultConnection=Server=db;Database=test;User=sa;Password=c4t7-X3IRO
+    depends_on:
+      - db      
+
+  db:
+    image: "mcr.microsoft.com/mssql/server"
+    networks:
+      - test-network
+    environment:
+      - MSSQL_SA_PASSWORD=c4t7-X3IRO
+      - ACCEPT_EULA=Y
+      - TZ=Europe/Amsterdam
+    ports: 
+      - 1433:1433
+
+networks:
+  test-network:

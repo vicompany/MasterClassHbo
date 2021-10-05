@@ -1,0 +1,21 @@
+﻿@page
+@model MasterClassHbo.Ipo.Pages.OverviewModel
+@{
+    ViewData["Title"] = "Current interest in IPO";
+} 
+@if (Model.Items.Any())
+{
+    <div class="overview">
+        Current interest
+        <ul>
+            <li>Total volume: @Model.Items.Sum(x => x.Amount)  </li>
+            <li>@Model.Items.Count() people are interested</li>
+            <li>@Model.Items.Count(x => x.Stocks) people are interested stock</li>
+            <li>@Model.Items.Count(x => x.Certificates) people are interested certificates</li>
+            <li>@Model.Items.Count(x => x.Derivatives) people are interested derivatives</li>
+        </ul>
+    </div>
+}
+else {
+    <p>There are no registrations yet 😢</p>
+}

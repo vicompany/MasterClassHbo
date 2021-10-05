@@ -1,0 +1,14 @@
+{
+  "name": "masterclasshbo.testing",
+  "version": "1.0.0",
+  "description": "End to End tests with Cypress",
+  "scripts": {
+    "dev": "cypress open",
+    "test": "cypress run --key b718df0e-75ce-41eb-a78a-e820a3271c69"
+  },
+  "author": "VI Company; Casper Broeren",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^8.4.1"
+  }
+}

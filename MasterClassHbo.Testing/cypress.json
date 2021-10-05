@@ -1,0 +1,8 @@
+{
+    "baseUrl": "http://localhost:5000",
+    "testFiles": [
+        "overview.noitems.spec.js",        
+        "registration.spec.js",  
+        "overview.items.spec.js"
+    ]
+}
